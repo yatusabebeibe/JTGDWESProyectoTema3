@@ -1,8 +1,27 @@
 <?php
 
     /*  @author Jesús Temprano Gallego
-     *  @since 16/10/2025
+     *  @since 17/10/2025
      */
 
-    echo file_get_contents(__FILE__);
+    $sueldoDia = [
+         "Lunes" => 8,
+         "Martes" => 6,
+         "Miercoles" => 15,
+         "Jueves" => 3,
+         "Viernes" => 10,
+         "Sabado" => 5,
+         "Domingo" => 7
+     ];
+    
+    
+     echo "Total: " . calcularSueldoSemanal($sueldoDia);
+    
+     function calcularSueldoSemanal($sueldoPorDia) {
+         $acumulador = 0;
+        foreach ($sueldoPorDia as $dia => $sueldo) {
+            $acumulador+=$sueldo;
+        }
+        return $acumulador;
+    }
 ?>
