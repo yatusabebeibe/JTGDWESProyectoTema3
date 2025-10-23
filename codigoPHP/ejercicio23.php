@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Cuestionario</title>
+    <style>
+        form *[obligatorio] {
+            background-color: lightgoldenrodyellow;
+        }
+    </style>
 </head>
 <body>
     <h2>Cuestionario</h2>
@@ -12,64 +17,75 @@
      *  @since 20/10/2025
      */
 
-    $nombre = $_REQUEST['nombre'] ?? '';
-    $edad = $_REQUEST['edad'] ?? '';
-    $color = $_REQUEST['color'] ?? '';
-    $errores = [];
+    require_once "../core/231018libreriaValidacion.php";
 
-    // Comprobamos si se ha enviado el formulario
-    if (isset($_REQUEST['submit'])) {
-        // Validamos campos
-        if (trim($nombre) === '') {
-            $errores[] = "El nombre no puede estar vacío.";
+    
+    $entradaOK = true;
+    $aErrores = ["nombre"=>'',"edad"=>'',"color"=>''];
+    $aRespuestas = ["nombre"=>'',"edad"=>'',"color"=>''];
+
+    if (!isset($_REQUEST["enviar"])) {
+        $entradaOK = false;
+    } else {
+        $aRespuestas["nombre"] = $_REQUEST['nombre'];
+        $aRespuestas["edad"]  = $_REQUEST['edad'];
+        $aRespuestas["color"] = $_REQUEST['color'];
+            
+        if (trim($aRespuestas["nombre"]) === '') {
+            $aErrores["nombre"] = "El nombre no puede estar vacío.";
         }
 
-        if ($edad === '' || !is_numeric($edad) || $edad < 0 || $edad > 120) {
-            $errores[] = "La edad debe ser un número entre 0 y 120.";
+        if ($aRespuestas["edad"] === '' || !is_numeric($aRespuestas["edad"]) || $aRespuestas["edad"] < 0 || $aRespuestas["edad"] > 120) {
+            $aErrores["edad"] = "La edad debe ser un número entre 0 y 120.";
         }
 
-        if ($color === '') {
-            $errores[] = "Debes seleccionar un color.";
+        if ($aRespuestas["color"] === '') {
+            $aErrores["color"] = "Debes seleccionar un color.";
         }
 
-        // Si no hay errores, mostramos resultados
-        if (empty($errores)) {
-            echo "<h3>Resultados:</h3>";
-            echo "<p><strong>Nombre:</strong> " . $nombre . "</p>";
-            echo "<p><strong>Edad:</strong> " . $edad . "</p>";
-            echo "<p><strong>Color favorito:</strong> " . $color . "</p>";
-        }
-    }
-
-    // Muestra el formulario si no se ha enviado o si hay errores
-    if (!isset($_REQUEST['submit']) || !empty($errores)) {
-?>
-    <form action="" method="post">
-        <label>Nombre:</label>
-        <input type="text" name="nombre" value="<?= $nombre ?>"><br><br>
-
-        <label>Edad:</label>
-        <input type="number" name="edad" min="0" max="120" value="<?= $edad ?>"><br><br>
-
-        <label>Color favorito:</label>
-        <select name="color">
-            <option value="">--Selecciona--</option>
-            <option value="Rojo" <?= $color === "Rojo" ? 'selected' : '' ?>>Rojo</option>
-            <option value="Azul" <?= $color === "Azul" ? 'selected' : '' ?>>Azul</option>
-            <option value="Verde" <?= $color === "Verde" ? 'selected' : '' ?>>Verde</option>
-        </select><br><br>
-
-        <input type="submit" name="submit" value="Enviar">
-    </form>
-<?php
-    if (!empty($errores)) {
-            echo "<ul style='color:red;'>";
-            foreach ($errores as $error) {
-                echo "<li>$error</li>";
+        foreach ($aErrores as $campo => $mensaje) {
+            if ($mensaje != '') {
+                $entradaOK = false;
             }
-            echo "</ul>";
         }
     }
-?>
+
+    if ($entradaOK) {
+        echo "<h3>Resultados:</h3>";
+        echo "<p><strong>Nombre:</strong> {$aRespuestas['nombre']}</p>";
+        echo "<p><strong>Edad:</strong> {$aRespuestas['edad']}</p>";
+        echo "<p><strong>Color favorito:</strong> {$aRespuestas['color']}</p>";
+    } else {
+        ?>
+        <form action="" method="post">
+            <div>
+                <label>Nombre:</label> <span style="color:red;"><?= $aErrores["nombre"] ?></span>
+                <input type="text" name="nombre" value="<?= $aRespuestas['nombre'] ?>" obligatorio>
+            </div>
+            <br>
+
+            <div>
+                <label>Edad:</label> <span style="color:red;"><?= $aErrores["edad"] ?></span>
+                <input type="number" name="edad" value="<?= $aRespuestas['edad'] ?>" obligatorio>
+            </div>
+            
+            <br>
+
+            <div>
+                <label>Color favorito:</label> <span style="color:red;"><?= $aErrores['color'] ?></span>
+                <select name="color" obligatorio>
+                    <option value="">--Selecciona--</option>
+                    <option value="Rojo" <?= $aRespuestas["color"] === "Rojo" ? 'selected' : '' ?>>Rojo</option>
+                    <option value="Azul" <?= $aRespuestas["color"] === "Azul" ? 'selected' : '' ?>>Azul</option>
+                    <option value="Verde" <?= $aRespuestas["color"] === "Verde" ? 'selected' : '' ?>>Verde</option>
+                </select>
+            </div>
+            <br>
+
+            <input type="submit" name="enviar" value="Enviar">
+        </form>
+        <?php
+    }
+    ?>
 </body>
 </html>
