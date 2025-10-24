@@ -173,8 +173,8 @@
                 <tr>
                     <td>12</td>
                     <td>Mostrar el contenido de las variables superglobales (utilizando print_r() y foreach()).</td>
-                    <td><a href="./codigoPHP/ejercicio12.php" target="_self"></a></td>
-                    <td><a href="./mostrarcodigo/muestraEjercicio12.php" target="_self"></a></td>
+                    <td><a href="./codigoPHP/ejercicio12.php" target="_self">Ejecutar</a></td>
+                    <td><a href="./mostrarcodigo/muestraEjercicio12.php" target="_self">Ver código</a></td>
                 </tr>
                 <tr>
                     <td>13</td>
@@ -188,7 +188,7 @@
                     <td><a href="./codigoPHP/ejercicio14.php" target="_self">Ejecutar</a></td>
                     <td><a href="./mostrarcodigo/muestraEjercicio14.php" target="_self">Ver código</a></td>
                 </tr>
-                <!-- <tr>
+                <tr>
                     <td>15</td>
                     <td>Crear e inicializar un array con el sueldo percibido de lunes a domingo. Recorrer el array para calcular el sueldo percibido durante la semana. (Array asociativo con los nombres de los días de la semana).</td>
                     <td><a href="./codigoPHP/ejercicio15.php" target="_self">Ejecutar</a></td>
@@ -215,14 +215,50 @@
                 <tr>
                     <td>19</td>
                     <td>Construir una librería de funciones de validación de campos de formularios (LibreríaValidacionFormularios.php) para utilizarla en los siguientes ejercicios. Discusión: diferencia entre librería de funciones y clase.</td>
-                    <td><a href="./codigoPHP/ejercicio19.php" target="_self">Ejecutar</a></td>
-                    <td><a href="./mostrarcodigo/muestraEjercicio19.php" target="_self">Ver código</a></td>
+                    <td><a href="./codigoPHP/ejercicio19.php" target="_self"></a></td>
+                    <td><a href="./mostrarcodigo/muestraEjercicio19.php" target="_self"></a></td>
                 </tr>
                 <tr>
                     <td>20</td>
                     <td>Convertir la LibreriaValidacionFormularios.php en una clase ValidacionFormularios.php. El profesor facilitará a los alumnos la clase AAMMDDValidacionFormularios.php desarrollada en el curso anterior como punto de partida.</td>
-                    <td><a href="./codigoPHP/ejercicio20.php" target="_self">Ejecutar</a></td>
-                    <td><a href="./mostrarcodigo/muestraEjercicio20.php" target="_self">Ver código</a></td>
+                    <td><a href="./codigoPHP/ejercicio20.php" target="_self"></a></td>
+                    <td><a href="./mostrarcodigo/muestraEjercicio20.php" target="_self"></a></td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td>Construir un formulario para recoger un cuestionario realizado a una persona y enviarlo a una página Tratamiento.php para que muestre las preguntas y las respuestas recogidas.</td>
+                    <td><a href="./codigoPHP/ejercicio21.php" target="_self">Ejecutar</a></td>
+                    <td><a href="./mostrarcodigo/muestraEjercicio21.php" target="_self">Ver código</a></td>
+                </tr>
+                <tr>
+                    <td>22</td>
+                    <td>Construir un formulario para recoger un cuestionario realizado a una persona y mostrar en la misma página las preguntas y las respuestas recogidas.</td>
+                    <td><a href="./codigoPHP/ejercicio22.php" target="_self">Ejecutar</a></td>
+                    <td><a href="./mostrarcodigo/muestraEjercicio22.php" target="_self">Ver código</a></td>
+                </tr>
+                <tr>
+                    <td>23</td>
+                    <td>Construir un formulario para recoger un cuestionario realizado a una persona y mostrar en la misma página las preguntas y las respuestas recogidas; en el caso de que alguna respuesta esté vacía o errónea volverá a salir el formulario con el mensaje correspondiente.</td>
+                    <td><a href="./codigoPHP/ejercicio23.php" target="_self">Ejecutar</a></td>
+                    <td><a href="./mostrarcodigo/muestraEjercicio23.php" target="_self">Ver código</a></td>
+                </tr>
+                <!-- <tr>
+                    <td>24</td>
+                    <td>Construir un formulario para recoger un cuestionario realizado a una persona y mostrar en la misma página las preguntas y las respuestas recogidas; en el caso de que alguna respuesta esté vacía o errónea volverá a salir el formulario con el mensaje correspondiente, pero las respuestas que habíamos tecleado correctamente aparecerán en el formulario y no tendremos que volver a teclearlas.</td>
+                    <td><a href="./codigoPHP/ejercicio24.php" target="_self">Ejecutar</a></td>
+                    <td><a href="./mostrarcodigo/muestraEjercicio24.php" target="_self">Ver código</a></td>
+                </tr>
+                <tr>
+                    <td>25</td>
+                    <td>Trabajar en PlantillaFormulario.php mi plantilla para hacer formularios como churros.</td>
+                    <td><a href="./codigoPHP/ejercicio25.php" target="_self">Ejecutar</a></td>
+                    <td><a href="./mostrarcodigo/muestraEjercicio25.php" target="_self">Ver código</a></td>
+                </tr>
+                <tr>
+                    <td>26</td>
+                    <td>Probar la plantilla anterior desarrollando un formulario que recoja la temperatura y la presión atmosférica en una serie de fechas y (cuando el usuario lo decida) genere un informe con los datos recibidos y un promedios, mínimos y máximos de temperatura y presión atmosférica.</td>
+                    <td><a href="./codigoPHP/ejercicio26.php" target="_self">Ejecutar</a></td>
+                    <td><a href="./mostrarcodigo/muestraEjercicio26.php" target="_self">Ver código</a></td>
                 </tr>  -->
             </tbody>
         </table>
