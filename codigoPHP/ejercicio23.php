@@ -88,32 +88,37 @@
         echo "<p><strong>Color favorito:</strong> {$aRespuestas['color']}</p>";
     } else {
         ?>
-        <form action="" method="post">
-            <div>
-                <label>Nombre:</label> <span style="color:red;"><?= $aErrores["nombre"] ?></span>
-                <input type="text" name="nombre" value="<?= $aRespuestas['nombre'] ?>" obligatorio>
-            </div>
-            <br>
+        <form method="post">
+            <div id="campos">
+                <div>
+                    <label class="tituloCampo">Nombre:</label>
+                    <input type="text" name="nombre" obligatorio>
+                    <span class="errorCampo" style="color:red;"><?= $aErrores["nombre"] ?></span>
+                </div>
+                <br>
 
-            <div>
-                <label>Edad:</label> <span style="color:red;"><?= $aErrores["edad"] ?></span>
-                <input type="number" name="edad" value="<?= $aRespuestas['edad'] ?>" obligatorio>
-            </div>
-            
-            <br>
+                <div>
+                    <label class="tituloCampo">Edad:</label>
+                    <input type="number" name="edad" obligatorio>
+                    <span class="errorCampo" style="color:red;"><?= $aErrores["edad"] ?></span>
+                </div>
+                
+                <br>
 
-            <div>
-                <label>Color favorito:</label> <span style="color:red;"><?= $aErrores['color'] ?></span>
-                <select name="color" obligatorio>
-                    <option value="">--Selecciona--</option>
-                    <option value="Rojo" <?= $aRespuestas["color"] === "Rojo" ? 'selected' : '' ?>>Rojo</option>
-                    <option value="Azul" <?= $aRespuestas["color"] === "Azul" ? 'selected' : '' ?>>Azul</option>
-                    <option value="Verde" <?= $aRespuestas["color"] === "Verde" ? 'selected' : '' ?>>Verde</option>
-                </select>
-            </div>
-            <br>
+                <div>
+                    <label class="tituloCampo">Color favorito:</label>
+                    <select name="color" obligatorio>
+                        <option value="">--Selecciona--</option>
+                        <option value="Rojo">Rojo</option>
+                        <option value="Azul">Azul</option>
+                        <option value="Verde">Verde</option>
+                    </select>
+                    <span class="errorCampo" style="color:red;"><?= $aErrores['color'] ?></span>
+                </div>
+                <br>
 
-            <input type="submit" name="enviar" value="Enviar">
+                <input type="submit" name="enviar" value="Enviar">
+            </div>
         </form>
         <?php
     }
