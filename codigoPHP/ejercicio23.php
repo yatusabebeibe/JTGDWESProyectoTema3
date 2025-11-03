@@ -4,13 +4,44 @@
     <meta charset="UTF-8">
     <title>Cuestionario</title>
     <style>
+        * {font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;}
         form *[obligatorio] {
             background-color: lightgoldenrodyellow;
+        }
+        body {
+            text-align: center;
+            margin-top: 100px;
+            font-weight: bold;
+            & > form {
+                min-width: 275px;
+                margin: 0 auto;
+                width: max-content;
+                border: 2px solid black;
+                padding: 50px 40px;
+                border-radius: 20px;
+                box-shadow: 3px 3px 10px #0000008e;
+            }
+        }
+
+        #campos {
+            margin: 0 auto;
+            width: max-content;
+            text-align: left;
+
+            & > div {
+                position: relative;
+                * {display: block;}
+                input {width: 100%; max-width: 200px;}
+                .errorCampo {
+                    font-size: 12px;
+                    min-height: 14px;
+                }
+            }
         }
     </style>
 </head>
 <body>
-    <h2>Cuestionario</h2>
+    <h1>Ejercicio 23</h1>
 
     <?php
     /*  @author Jesús Temprano Gallego
