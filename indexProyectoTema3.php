@@ -20,7 +20,7 @@
             margin: 0;
         }
         main {
-            max-width: 900px;
+            max-width: 1300px;
             margin: 30px auto;
             padding: 20px;
             background: white;
@@ -91,10 +91,10 @@
         <table>
             <thead>
                 <tr>
-                    <th style="width: max-content">Nº Ej</th>
-                    <th style="width: 60%;">Ejercicio</th>
-                    <th style="width: 16%;">Ejecutar</th>
-                    <th style="width: 16%;">Código</th>
+                    <th style="width: 50px; max-width: 50px;">Nº Ej</th>
+                    <th style="width: calc(100% - 50px - 90px*2);">Ejercicio</th>
+                    <th style="width: 145px; max-width: 90px;">Ejecutar</th>
+                    <th style="width: 145px; max-width: 90px;">Código</th>
                 </tr>
             </thead>
             <tbody>
