@@ -20,7 +20,7 @@
             margin: 0;
         }
         main {
-            max-width: 900px;
+            max-width: 1300px;
             margin: 30px auto;
             padding: 20px;
             background: white;
@@ -91,10 +91,10 @@
         <table>
             <thead>
                 <tr>
-                    <th style="width: max-content">Nº Ej</th>
-                    <th style="width: 60%;">Ejercicio</th>
-                    <th style="width: 16%;">Ejecutar</th>
-                    <th style="width: 16%;">Código</th>
+                    <th style="width: 50px; max-width: 50px;">Nº Ej</th>
+                    <th style="width: calc(100% - 50px - 90px*2);">Ejercicio</th>
+                    <th style="width: 145px; max-width: 90px;">Ejecutar</th>
+                    <th style="width: 145px; max-width: 90px;">Código</th>
                 </tr>
             </thead>
             <tbody>
@@ -242,24 +242,12 @@
                     <td><a href="./codigoPHP/ejercicio23.php" target="_self">Ejecutar</a></td>
                     <td><a href="./mostrarcodigo/muestraEjercicio23.php" target="_self">Ver código</a></td>
                 </tr>
-                <!-- <tr>
+                <tr>
                     <td>24</td>
                     <td>Construir un formulario para recoger un cuestionario realizado a una persona y mostrar en la misma página las preguntas y las respuestas recogidas; en el caso de que alguna respuesta esté vacía o errónea volverá a salir el formulario con el mensaje correspondiente, pero las respuestas que habíamos tecleado correctamente aparecerán en el formulario y no tendremos que volver a teclearlas.</td>
                     <td><a href="./codigoPHP/ejercicio24.php" target="_self">Ejecutar</a></td>
                     <td><a href="./mostrarcodigo/muestraEjercicio24.php" target="_self">Ver código</a></td>
                 </tr>
-                <tr>
-                    <td>25</td>
-                    <td>Trabajar en PlantillaFormulario.php mi plantilla para hacer formularios como churros.</td>
-                    <td><a href="./codigoPHP/ejercicio25.php" target="_self">Ejecutar</a></td>
-                    <td><a href="./mostrarcodigo/muestraEjercicio25.php" target="_self">Ver código</a></td>
-                </tr>
-                <tr>
-                    <td>26</td>
-                    <td>Probar la plantilla anterior desarrollando un formulario que recoja la temperatura y la presión atmosférica en una serie de fechas y (cuando el usuario lo decida) genere un informe con los datos recibidos y un promedios, mínimos y máximos de temperatura y presión atmosférica.</td>
-                    <td><a href="./codigoPHP/ejercicio26.php" target="_self">Ejecutar</a></td>
-                    <td><a href="./mostrarcodigo/muestraEjercicio26.php" target="_self">Ver código</a></td>
-                </tr>  -->
             </tbody>
         </table>
     </main>

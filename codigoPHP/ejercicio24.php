@@ -13,7 +13,7 @@
             margin-top: 100px;
             font-weight: bold;
             & > form {
-                min-width: 275px;
+                min-width: 350px;
                 margin: 0 auto;
                 width: max-content;
                 border: 2px solid black;
@@ -25,7 +25,7 @@
 
         #campos {
             margin: 0 auto;
-            width: max-content;
+            /* width: max-content; */
             text-align: left;
 
             & > div {
@@ -41,7 +41,7 @@
     </style>
 </head>
 <body>
-    <h1>Ejercicio 23</h1>
+    <h1>Ejercicio 24</h1>
 
     <?php
     /*  @author Jesús Temprano Gallego
@@ -62,15 +62,15 @@
         $aRespuestas["edad"]  = $_REQUEST['edad'];
         $aRespuestas["color"] = $_REQUEST['color'];
             
-        if (trim($aRespuestas["nombre"]) === '') {
+        if (!empty(validacionFormularios::comprobarAlfabetico(cadena:$aRespuestas["nombre"],obligatorio: 1))) {
             $aErrores["nombre"] = "El nombre no puede estar vacío.";
         }
 
-        if ($aRespuestas["edad"] === '' || !is_numeric($aRespuestas["edad"]) || $aRespuestas["edad"] < 0 || $aRespuestas["edad"] > 120) {
+        if (!is_null(validacionFormularios::comprobarEntero($aRespuestas["edad"], 120, 0, 1))) {
             $aErrores["edad"] = "La edad debe ser un número entre 0 y 120.";
         }
 
-        if ($aRespuestas["color"] === '') {
+        if (empty($aRespuestas["color"])) {
             $aErrores["color"] = "Debes seleccionar un color.";
         }
 
@@ -92,14 +92,14 @@
             <div id="campos">
                 <div>
                     <label class="tituloCampo">Nombre:</label>
-                    <input type="text" name="nombre" obligatorio>
+                    <input type="text" name="nombre" value="<?= $aRespuestas['nombre'] ?>" obligatorio>
                     <span class="errorCampo" style="color:red;"><?= $aErrores["nombre"] ?></span>
                 </div>
                 <br>
 
                 <div>
                     <label class="tituloCampo">Edad:</label>
-                    <input type="number" name="edad" obligatorio>
+                    <input type="number" name="edad" value="<?= $aRespuestas['edad'] ?>" obligatorio>
                     <span class="errorCampo" style="color:red;"><?= $aErrores["edad"] ?></span>
                 </div>
                 
@@ -109,9 +109,9 @@
                     <label class="tituloCampo">Color favorito:</label>
                     <select name="color" obligatorio>
                         <option value="">--Selecciona--</option>
-                        <option value="Rojo">Rojo</option>
-                        <option value="Azul">Azul</option>
-                        <option value="Verde">Verde</option>
+                        <option value="Rojo" <?= $aRespuestas["color"] === "Rojo" ? 'selected' : '' ?>>Rojo</option>
+                        <option value="Azul" <?= $aRespuestas["color"] === "Azul" ? 'selected' : '' ?>>Azul</option>
+                        <option value="Verde" <?= $aRespuestas["color"] === "Verde" ? 'selected' : '' ?>>Verde</option>
                     </select>
                     <span class="errorCampo" style="color:red;"><?= $aErrores['color'] ?></span>
                 </div>
