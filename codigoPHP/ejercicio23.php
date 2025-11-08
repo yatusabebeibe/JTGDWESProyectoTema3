@@ -74,10 +74,8 @@
             $aErrores["color"] = "Debes seleccionar un color.";
         }
 
-        foreach ($aErrores as $campo => $mensaje) {
-            if ($mensaje != '') {
-                $entradaOK = false;
-            }
+        foreach ($aErrores as $mensaje) {
+            if (empty($mensaje)) $entradaOK = false;
         }
     }
 

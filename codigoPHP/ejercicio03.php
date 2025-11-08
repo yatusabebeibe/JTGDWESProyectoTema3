@@ -5,6 +5,7 @@
      */
 
     date_default_timezone_set('Europe/Madrid');
+    setlocale(LC_TIME, 'es_ES.UTF-8', 'es_ES', 'spanish');
     
     $tFecha = new DateTime();
     $fX = $tFecha;
