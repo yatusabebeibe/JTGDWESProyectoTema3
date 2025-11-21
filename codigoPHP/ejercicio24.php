@@ -51,35 +51,41 @@
     require_once "../core/231018libreriaValidacion.php";
 
     
-    $entradaOK = true;
+    // Variables generales para gestionar los datos del formulario
+    $entradaOK = true; // Se pone a false si el cliente no se envia datos o si los datos estan mal
     $aErrores = ["nombre"=>'',"edad"=>'',"color"=>''];
     $aRespuestas = ["nombre"=>'',"edad"=>'',"color"=>''];
 
-    if (!isset($_REQUEST["enviar"])) {
+    if (!isset($_REQUEST["enviar"])) { // Si hemos cargado la pagina por primera vez
         $entradaOK = false;
     } else {
+
+        // Recogemos los datos enviados del cliente y los metemos en el array de respuestas
         $aRespuestas["nombre"] = $_REQUEST['nombre'];
         $aRespuestas["edad"]  = $_REQUEST['edad'];
         $aRespuestas["color"] = $_REQUEST['color'];
-            
-        if (!empty(validacionFormularios::comprobarAlfabetico(cadena:$aRespuestas["nombre"],obligatorio: 1))) {
-            $aErrores["nombre"] = "El nombre no puede estar vacío.";
+
+        // Comprobamos que el nombre no este vacio y contenga solo letras
+        if ($error = validacionFormularios::comprobarAlfabetico($aRespuestas["nombre"], 3, 3, 1)) {
+            $aErrores["nombre"] = $error; // Si da error se lo pasamos a el array de errores
         }
 
-        if (!is_null(validacionFormularios::comprobarEntero($aRespuestas["edad"], 120, 0, 1))) {
-            $aErrores["edad"] = "La edad debe ser un número entre 0 y 120.";
+        if ($error = validacionFormularios::comprobarEntero($aRespuestas["edad"], 120, 0, 1)) {
+            $aErrores["edad"] = $error; // Si da error se lo pasamos a el array de errores
         }
 
+        // Comprobamos que se haya seleccionado un color
         if (empty($aRespuestas["color"])) {
             $aErrores["color"] = "Debes seleccionar un color.";
         }
 
+        // Comprobamos si hay errores
         foreach ($aErrores as $mensaje) {
-            if (empty($mensaje)) $entradaOK = false;
+            if (!empty($mensaje)) $entradaOK = false;
         }
     }
 
-    if ($entradaOK) {
+    if ($entradaOK) { // Si no habia errores se muestran los datos
         echo "<h3>Resultados:</h3>";
         echo "<p><strong>Nombre:</strong> {$aRespuestas['nombre']}</p>";
         echo "<p><strong>Edad:</strong> {$aRespuestas['edad']}</p>";
@@ -90,14 +96,16 @@
             <div id="campos">
                 <div>
                     <label class="tituloCampo">Nombre:</label>
-                    <input type="text" name="nombre" value="<?= $aRespuestas['nombre'] ?>" obligatorio>
+                    <!-- Ponemos los valores del array respuesta para que el usuario no tenga que escribirlo de nuevo en caso de error, y si ya se ha procesado lo eliminamos -->
+                    <input type="text" name="nombre" value="<?= $entradaOK ? "" : $aRespuestas['nombre'] ?>" obligatorio>
+                    <!-- Si ha habido un error lo muestra -->
                     <span class="errorCampo" style="color:red;"><?= $aErrores["nombre"] ?></span>
                 </div>
                 <br>
 
                 <div>
                     <label class="tituloCampo">Edad:</label>
-                    <input type="number" name="edad" value="<?= $aRespuestas['edad'] ?>" obligatorio>
+                    <input type="number" name="edad" value="<?= $entradaOK ? "" : $aRespuestas['edad'] ?>" obligatorio>
                     <span class="errorCampo" style="color:red;"><?= $aErrores["edad"] ?></span>
                 </div>
                 
@@ -107,9 +115,9 @@
                     <label class="tituloCampo">Color favorito:</label>
                     <select name="color" obligatorio>
                         <option value="">--Selecciona--</option>
-                        <option value="Rojo" <?= $aRespuestas["color"] === "Rojo" ? 'selected' : '' ?>>Rojo</option>
-                        <option value="Azul" <?= $aRespuestas["color"] === "Azul" ? 'selected' : '' ?>>Azul</option>
-                        <option value="Verde" <?= $aRespuestas["color"] === "Verde" ? 'selected' : '' ?>>Verde</option>
+                        <option value="Rojo" <?= !$entradaOK || $aRespuestas["color"] === "Rojo" ? 'selected' : '' ?>>Rojo</option>
+                        <option value="Azul" <?= !$entradaOK || $aRespuestas["color"] === "Azul" ? 'selected' : '' ?>>Azul</option>
+                        <option value="Verde" <?= !$entradaOK || $aRespuestas["color"] === "Verde" ? 'selected' : '' ?>>Verde</option>
                     </select>
                     <span class="errorCampo" style="color:red;"><?= $aErrores['color'] ?></span>
                 </div>
