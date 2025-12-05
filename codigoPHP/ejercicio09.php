@@ -4,5 +4,6 @@
      *  @since 16/10/2025
      */
 
-    echo $_SERVER['CONTEXT_DOCUMENT_ROOT'];
+    // Mostramos la ruta completa del directorio donde se encuentra el script
+    echo __DIR__;
 ?>
