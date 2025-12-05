@@ -23,6 +23,7 @@
             }
         }
 
+        *[obligatorio] {background: #fbff0042;}
         #campos {
             margin: 0 auto;
             width: max-content;
@@ -75,7 +76,7 @@
         }
 
         foreach ($aErrores as $mensaje) {
-            if (empty($mensaje)) $entradaOK = false;
+            if (!empty($mensaje)) $entradaOK = false;
         }
     }
 

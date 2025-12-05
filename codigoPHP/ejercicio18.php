@@ -1,3 +1,15 @@
+<style>
+    * { box-sizing: border-box; }
+    table { border-collapse: collapse; }
+    td {
+        border:solid black 1px;
+        min-width: 25px;
+        height: 25px;
+        padding: 0 5px;
+    }
+    .indice { text-align: center; background-color: lightgray; }
+    .vacio { border: none; }
+</style>
 <?php
 
     /*  @author Jesús Temprano Gallego
@@ -29,23 +41,48 @@
     // current() Devuelve el elemento de la posición actual
     // key() Devuelve la clave de la posición actual
     
-    echo '<table style="border:solid black 1px">';
-    
+    echo "<table>";
+
+    echo "<tr>";
+    echo "<td class='vacio'></td>";
     reset($teatro);
-    while (($filaActual = current($teatro)) !== false) {
-        echo '<tr style="border:solid black 1px">';
-        
-        reset($filaActual);
-        while (($asientoActual = current($filaActual)) !== false) {
-            echo '<td style="border:solid black 1px; min-width:25px; height:25px;">';
-            echo $asientoActual;
-            echo '</td>';
-            next($filaActual); // siguiente asiento
+    $filaPrimera = current($teatro);
+    foreach ($filaPrimera as $nAsiento => $persona) {
+        echo "<td class='indice'>A$nAsiento</td>";
+    }
+    echo "<td class='vacio'></td>";
+    echo "</tr>";
+
+    reset($teatro);
+    while (($aAsiento = current($teatro)) !== false) {
+        $nFila = key($teatro);
+
+        echo "<tr>";
+        echo "<td class='indice'>F$nFila</td>";
+
+        reset($aAsiento);
+        while (($persona = current($aAsiento)) !== false) {
+            $nAsiento = key($aAsiento);
+            echo "<td>$persona</td>";
+            next($aAsiento);
         }
 
-        echo '</tr>';
-        next($teatro); // siguiente fila
+        echo "<td class='indice'>F$nFila</td>";
+        echo "</tr>";
+
+        next($teatro);
     }
 
-    echo '</table>';
+    echo "<tr>";
+    echo "<td class='vacio'></td>";
+    reset($teatro);
+    $filaPrimera = current($teatro);
+    foreach ($filaPrimera as $nAsiento => $persona) {
+        echo "<td class='indice'>A$nAsiento</td>";
+    }
+    echo "<td class='vacio'></td>";
+    echo "</tr>";
+
+    echo "</table>";
+
 ?>

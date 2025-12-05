@@ -13,6 +13,6 @@
     con salto de línea
     EOT;
     
-    echo $sTexto1;
-    echo $sTexto2;
+    echo "<pre>".$sTexto1."</pre>";
+    echo "<pre>".$sTexto2."</pre>";
 ?>

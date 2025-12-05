@@ -18,9 +18,9 @@
     
     print "<br>Uso de print<br>";
     print  "La variable \"\$sSaludo\", contiene \"$sSaludo\" y  es de tipo\"" . gettype($sSaludo) . "\"<br>";
-    echo "La variable \"\$iPrecio\", contiene \"$iPrecio\" y  es de tipo\"" . gettype($iPrecio) . "\"<br>";
-    echo "La variable \"\$fDecimal\", contiene \"$fDecimal\" y  es de tipo\"" . gettype($fDecimal) . "\"<br>";
-    echo "La variable \"\$bCompletado\", contiene \"$bCompletado\" y  es de tipo\"" . gettype($bCompletado) . "\"<br>";
+    print "La variable \"\$iPrecio\", contiene \"$iPrecio\" y  es de tipo\"" . gettype($iPrecio) . "\"<br>";
+    print "La variable \"\$fDecimal\", contiene \"$fDecimal\" y  es de tipo\"" . gettype($fDecimal) . "\"<br>";
+    print "La variable \"\$bCompletado\", contiene \"$bCompletado\" y  es de tipo\"" . gettype($bCompletado) . "\"<br>";
     
     
     printf("<br>Uso de printf<br>");

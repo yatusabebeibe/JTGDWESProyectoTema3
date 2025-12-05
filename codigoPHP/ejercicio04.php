@@ -8,12 +8,11 @@
      setlocale(LC_TIME, 'pt_PT.UTF-8', 'pt_PT', 'portuguese');
      
     $tFecha = new DateTime();
-    $fX = $tFecha;
-     echo $fX->format('d-m-Y h:i:s') ."<br>";
-     echo $fX->format('Y') ."<br>";
-     echo $fX->format('F') ."<br>";
-     echo $fX->format('l') ."<br>";
-     echo $fX->format("d F Y") ."<br>";
-     echo $fX->format('h:i') ."<br>";
-     echo $fX->format('h:i:s') ."<br>";
+    echo strftime('%d-%m-%Y %H:%M:%S', $tFecha->getTimestamp()) . "<br>";
+    echo strftime('%Y', $tFecha->getTimestamp()) . "<br>";
+    echo strftime('%B', $tFecha->getTimestamp()) . "<br>";
+    echo strftime('%A', $tFecha->getTimestamp()) . "<br>";
+    echo strftime('%d %B %Y', $tFecha->getTimestamp()) . "<br>";
+    echo strftime('%H:%M', $tFecha->getTimestamp()) . "<br>";
+    echo strftime('%H:%M:%S', $tFecha->getTimestamp()) . "<br>";
 ?>

@@ -23,6 +23,7 @@
             }
         }
 
+        *[obligatorio] {background: #fbff0042;}
         #campos {
             margin: 0 auto;
             /* width: max-content; */
@@ -54,7 +55,7 @@
     // Variables generales para gestionar los datos del formulario
     $entradaOK = true; // Se pone a false si el cliente no se envia datos o si los datos estan mal
     $aErrores = ["nombre"=>'',"edad"=>'',"color"=>''];
-    $aRespuestas = ["nombre"=>'',"edad"=>'',"color"=>''];
+    $aRespuestas = ["nombre"=>'',"edad"=>'',"color"=>'fds'];
 
     if (!isset($_REQUEST["enviar"])) { // Si hemos cargado la pagina por primera vez
         $entradaOK = false;
@@ -66,7 +67,7 @@
         $aRespuestas["color"] = $_REQUEST['color'];
 
         // Comprobamos que el nombre no este vacio y contenga solo letras
-        if ($error = validacionFormularios::comprobarAlfabetico($aRespuestas["nombre"], 3, 3, 1)) {
+        if ($error = validacionFormularios::comprobarAlfabetico($aRespuestas["nombre"], minTamanio:3, obligatorio:1)) {
             $aErrores["nombre"] = $error; // Si da error se lo pasamos a el array de errores
         }
 
@@ -115,9 +116,9 @@
                     <label class="tituloCampo">Color favorito:</label>
                     <select name="color" obligatorio>
                         <option value="">--Selecciona--</option>
-                        <option value="Rojo" <?= !$entradaOK || $aRespuestas["color"] === "Rojo" ? 'selected' : '' ?>>Rojo</option>
-                        <option value="Azul" <?= !$entradaOK || $aRespuestas["color"] === "Azul" ? 'selected' : '' ?>>Azul</option>
-                        <option value="Verde" <?= !$entradaOK || $aRespuestas["color"] === "Verde" ? 'selected' : '' ?>>Verde</option>
+                        <option value="Rojo" <?= $aRespuestas["color"] === "Rojo" ? 'selected' : '' ?>>Rojo</option>
+                        <option value="Azul" <?= $aRespuestas["color"] === "Azul" ? 'selected' : '' ?>>Azul</option>
+                        <option value="Verde" <?= $aRespuestas["color"] === "Verde" ? 'selected' : '' ?>>Verde</option>
                     </select>
                     <span class="errorCampo" style="color:red;"><?= $aErrores['color'] ?></span>
                 </div>
