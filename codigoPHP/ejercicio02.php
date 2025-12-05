@@ -4,15 +4,14 @@
      *  @since 09/10/2025
      */
 
-    $sTexto1 = "esto es una"
-            . "variable heredoc";
-    
-    $sTexto2 = <<<EOT
+    // Variable con un texto multilínea usando heredoc
+    // El texto empieza desde la primera línea y ignora la tabulación de cada linea hasta el delimitador (EOT) final
+    $sTexto = <<<EOT
     Esto es una
     variable heredoc
     con salto de línea
     EOT;
     
-    echo "<pre>".$sTexto1."</pre>";
-    echo "<pre>".$sTexto2."</pre>";
+    // Mostramos el contenido de la variable usando <pre> para que salgan los saltos de línea
+    echo "<pre>".$sTexto."</pre>";
 ?>

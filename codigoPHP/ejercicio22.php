@@ -14,16 +14,19 @@
 
     // Comprobamos si se han enviado datos
     if (isset($_REQUEST['submit'])) {
+
+        // Obtenemos los valores enviados
         $nombre = $_REQUEST['nombre'] ?? '';
         $edad = $_REQUEST['edad'] ?? '';
         $color = $_REQUEST['color'] ?? '';
 
+        // Mostramos los resultados
         echo "<h3>Resultados:</h3>";
         echo "<p><strong>Nombre:</strong> " . $nombre . "</p>";
         echo "<p><strong>Edad:</strong> " . $edad . "</p>";
         echo "<p><strong>Color favorito:</strong> " . $color . "</p>";
-        exit;
     } else {
+        // Mostramos el formulario si no se han enviado datos
     ?>
 
     <form action="" method="post">
@@ -43,6 +46,6 @@
         <input type="submit" name="submit" value="Enviar">
     </form>
 
-    <?php } ?>
+    <?php } // cerramos el else de arriba ?>
 </body>
 </html>
